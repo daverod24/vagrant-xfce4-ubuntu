@@ -2,11 +2,11 @@
 # vi: set ft=ruby :
 
 Vagrant.configure('2') do |config|
-  config.vm.box = 'ubuntu/xenial64'
+  config.vm.box = 'geerlingguy/ubuntu2004' #"generic/ubuntu2004"  "ubuntu/focal64"
 
   config.vm.box_check_update = false
 
-  config.vm.host_name = 'xfce4.ubuntu64.vagrantup.com'
+  config.vm.host_name = 'xfce4.ubuntu-dave.tech'
 
   config.vm.network 'forwarded_port', guest: 22,   host: 2170, id: 'ssh', auto_correct: true
 

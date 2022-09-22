@@ -10,8 +10,6 @@ gzip \
 lsb-release \
 man-db \
 patch \
-python-apt \
-python-pycurl \
 sed \
 software-properties-common \
 tar \

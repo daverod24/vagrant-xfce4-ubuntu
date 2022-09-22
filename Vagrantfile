@@ -2,27 +2,30 @@
 # vi: set ft=ruby :
 
 Vagrant.configure('2') do |config|
-  config.vm.box = 'geerlingguy/ubuntu2004' #"generic/ubuntu2004"  "ubuntu/focal64"
+  config.vm.box = 'geerlingguy/ubuntu2004' #"generic/ubuntu2004"  "ubuntu/focal64" geerlingguy/ubuntu2004
 
   config.vm.box_check_update = false
 
-  config.vm.host_name = 'xfce4.ubuntu-dave.tech'
+  config.vm.host_name = 'xfce4.ubuntu-dave1.tech'
 
   config.vm.network 'forwarded_port', guest: 22,   host: 2170, id: 'ssh', auto_correct: true
 
   # config.vm.synced_folder '../data', '/vagrant_data'
 
   config.vm.provider 'virtualbox' do |vb|
-    vb.gui = true
-    vb.name = 'xfce4-ubuntu'
+    vb.gui = false
+    vb.name = 'labtest'
     vb.memory = 4096
-    vb.cpus = 1
-    vb.customize ['modifyvm', :id, '--vram', '256']
+    vb.cpus = 2
+    vb.customize ['modifyvm', :id, '--vram', '64']
     vb.customize ['modifyvm', :id, '--accelerate2dvideo', 'off']
     vb.customize ['modifyvm', :id, '--accelerate3d', 'on']
+    vb.customize ['modifyvm', :id, '--draganddrop', 'bidirectional']
     vb.customize ['modifyvm', :id, '--clipboard', 'bidirectional']
     vb.customize ['modifyvm', :id, '--natdnshostresolver1', 'on']
     vb.customize ['modifyvm', :id, '--natdnsproxy1', 'on']
+    vb.customize ['modifyvm', :id, '--graphicscontroller', 'vmsvga']
+    vb.customize ['modifyvm', :id, '--vtxux', 'on']
     # vb.customize ['setextradata', :id, 'GUI/HiDPI/UnscaledOutput', '1']
   end
 

@@ -11,3 +11,8 @@ sudo systemctl enable docker
 sudo usermod --groups docker --append $(whoami)
 touch /home/$(whoami)/.bashrc
 echo "alias whalehunt='docker rm -f \$(docker ps -aq)'" >> /home/$(whoami)/.bashrc
+
+
+
+curl -LO https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64
+sudo install minikube-linux-amd64 /usr/local/bin/minikube
